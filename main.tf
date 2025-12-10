@@ -73,7 +73,7 @@ resource "azurerm_mssql_database" "database" {
   max_size_gb    = 2
   sku_name       = "S0"
   zone_redundant = false
-  
+
   lifecycle {
     prevent_destroy = false
   }
