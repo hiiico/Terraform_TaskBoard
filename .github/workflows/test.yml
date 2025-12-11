@@ -5,8 +5,11 @@ on:
     branches: [ "main" ]
   pull_request:
 
-permissions:
-  contents: read
+env: 
+    ARM_CLIENT_ID: ${{ secrets.AZURE_CLIEN_ID }}
+    ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+    ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
 
 jobs:
   terraform:
@@ -16,6 +19,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+
+    - name: Login to Azure
+      uses: azure/login@v2
+      with: 
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
