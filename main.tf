@@ -11,10 +11,10 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name = "TaskBoard"
+    resource_group_name  = "TaskBoard"
     storage_account_name = "taskboardsahiiico"
-    container_name = "tasboardcontainer"
-    key = "terraform.tfstate"
+    container_name       = "tasboardcontainer"
+    key                  = "terraform.tfstate"
   }
 }
 
