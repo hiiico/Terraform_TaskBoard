@@ -10,6 +10,12 @@ terraform {
       version = "3.7.2"
     }
   }
+  backend "azurerm" {
+    resource_group_name = "TaskBoard"
+    storage_account_name = "taskboardsahiiico"
+    container_name = "tasboardcontainer"
+    key = "terraform.tfstate"
+  }
 }
 
 resource "random_integer" "ri" {
