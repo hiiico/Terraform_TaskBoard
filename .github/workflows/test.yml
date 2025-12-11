@@ -1,10 +1,10 @@
 name: 'Terraform Test'
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-
+  # push:
+  #   branches: [ "main" ]
+  # pull_request:
+  workflow_dispatch:
 env: 
     ARM_CLIENT_ID: ${{ secrets.AZURE_CLIEN_ID }}
     ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
